@@ -1,3 +1,187 @@
-<!-- features -->
-<!-- features to be updated -->
-<!-- Arun is going to work on this page. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Key Features – Eventwise</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #FFFDF6; /* Ivory / Warm White */
+      color: #333333; /* Charcoal */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      background-color: #FFFDF6;
+    }
+
+    h2.section-heading {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    h2.section-heading::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: #008080; /* Teal underline */
+      margin: 6px auto 0 auto;
+      border-radius: 2px;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      color: #333333;
+    }
+
+    .card {
+      background-color: #F7E7CE; /* Champagne Beige */
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+      border: 2px solid transparent;
+      color: #333333;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(0, 128, 128, 0.3); /* Teal shadow */
+      border-color: #008080;
+    }
+
+    .card.selected {
+      border-bottom: 4px solid purple;
+    }
+
+    .btn-custom {
+      background-color: #FF6B6B; /* Coral */
+      color: #fff;
+      border: none;
+    }
+
+    .btn-custom:hover {
+      background-color: #008080; /* Teal */
+      color: #fff;
+    }
+
+    .btn-custom:focus {
+      outline: 3px solid #008080;
+      outline-offset: 2px;
+    }
+
+    .highlight-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 0.85rem;
+      background-color: #D8A7B1; /* Dusty Rose */
+      color: #fff;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Logo Header -->
+<header class="py-3">
+  <div class="container d-flex justify-content-center">
+    <img src="./images/Eventwise-removebg-preview.png" height="140" alt="Eventwise Logo">
+  </div>
+</header>
+
+<!-- Features Section -->
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="section-heading">Key Features</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-4">
+
+      <div class="col">
+        <div class="card h-100 p-3 feature-card">
+          <div class="card-body">
+            <h5 class="card-title feature-title">Smart Event Planning</h5>
+            <p class="card-text">Easily create, organize and manage your events with our intuitive planning tools.</p>
+            <span class="highlight-tag">Planning</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 p-3 feature-card">
+          <div class="card-body">
+            <h5 class="card-title feature-title">Automated Invites</h5>
+            <p class="card-text">Send automated invitations and reminders to attendees, saving time and effort.</p>
+            <span class="highlight-tag">Automation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 p-3 feature-card">
+          <div class="card-body">
+            <h5 class="card-title feature-title">Real-time RSVP Tracking</h5>
+            <p class="card-text">Monitor who’s coming in real time, so you’re always in control of your guest list.</p>
+            <span class="highlight-tag">Live</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 p-3 feature-card">
+          <div class="card-body">
+            <h5 class="card-title feature-title">Customizable Themes</h5>
+            <p class="card-text">Choose from a variety of themes to personalize your event pages to match your brand.</p>
+            <span class="highlight-tag">Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 p-3 feature-card">
+          <div class="card-body">
+            <h5 class="card-title feature-title">Secure Payment Integration</h5>
+            <p class="card-text">Enable ticketing and payments through secure gateways like Stripe and PayPal.</p>
+            <span class="highlight-tag">Payments</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 p-3 feature-card">
+          <div class="card-body">
+            <h5 class="card-title feature-title">Analytics Dashboard</h5>
+            <p class="card-text">Track attendee behavior, ticket sales, and engagement with powerful built-in analytics.</p>
+            <span class="highlight-tag">Insights</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call-to-action button -->
+    <div class="text-center mt-5">
+      <button class="btn btn-custom px-4 py-2">Start Planning Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- JS to toggle purple underline on click -->
+<script>
+  document.querySelectorAll('.feature-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.feature-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+    });
+  });
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+<!-- End of Features Section --
