@@ -1,0 +1,21 @@
+.bg-white {
+  background-color: #EED3D3 !important;
+}
+
+.text-bg-dark, .bg-custom-pink {
+  background-color: #EED3D3 !important;
+}
+
+.btn-primary {
+  background-color: #B48686 !important;
+  border-color: #B48686 !important;
+}
+.btn-primary:hover, 
+.btn-primary:focus {
+  background-color: #9a7171 !important;
+  border-color: #9a7171 !important;
+}
+
+.dropdown-item.nala-text {
+  color: #9a7171 !important;
+}
