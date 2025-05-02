@@ -1,2 +1,257 @@
-<!-- features -->
-<!-- features to be updated -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventwise – Key Features</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #fffaf0;
+      color: #180404;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+    header, footer {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .section-heading {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 4px;
+      background-color: #20c997;
+      margin: 6px auto 0 auto;
+      border-radius: 2px;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: #333;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #20c997;
+    }
+    .card {
+      background-color: #f9f2e7;
+      border: none;
+      transition: 0.4s ease;
+      border-radius: 15px;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(16, 105, 78, 0.2);
+    }
+    .btn-custom {
+      background-color: #ff6f61;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      transition: 0.4s ease;
+    }
+    .btn-custom:hover {
+      background-color: #12916b;
+      color: #fff;
+    }
+    .highlight-tag {
+      background-color: #7d0e22;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .floating-avatar {
+      max-height: 300px;
+      animation: float 3s ease-in-out infinite;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    #chatContainer {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      display: none;
+      background-color: #fff;
+      border: 2px solid #20c997;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 9999;
+    }
+    #chatButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #b12316;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 9998;
+      transition: 0.4s ease;
+    }
+    #chatButton:hover {
+      background-color: #128160;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<header class="p-3 bg-light text-white">
+  <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="./homepage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src="./images/Eventwise-removebg-preview.png" height="140">
+          </a>
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="./homepage.html" class="nav-link px-2 text-secondary">Home</a></li>
+              <li><a href="./about.html" class="nav-link px-2 text-black">About</a></li>
+              <li><a href="./features.html" class="nav-link px-2 text-black">Features</a></li>
+              <li><a href="./pricing.html" class="nav-link px-2 text-black">Pricing</a></li>
+          </ul>
+
+
+          <div class="text-end">
+              <a class="btn btn-outline-dark me-2" href="./login.html" role="button">Login</a>
+              <a class="btn btn-outline-light me-2 btn-outline-light btn btn-dark" href="./signup.html" role="button">Sign-up</a>
+          </div>
+      </div>
+  </div>
+</header>
+<!-- End of Navigation -->
+
+<!-- Floating Avatar and Introduction -->
+<section class="text-center my-5">
+  <img src="./images/arielle-tan-avatar.png" alt="Arielle Tan" class="floating-avatar rounded-circle mb-3">
+  <h1 class="fw-bold">Hi, I'm <Ri:a></Ri:a>Arielle Tan!</h1>
+  <p class="fs-4">
+    🎉 Discover how <strong>Eventwise</strong> can make your event planning effortless! 🌟
+  </p>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="section-heading">Key Features</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-4">
+
+      <!-- Feature Cards -->
+      <div class="col"><div class="card h-100 p-4"><div class="card-body">
+        <h5 class="card-title fw-bold">Smart Event Planning</h5>
+        <p class="card-text">Create, organize and manage events effortlessly with smart tools.</p>
+        <span class="highlight-tag">Planning</span>
+      </div></div></div>
+
+      <div class="col"><div class="card h-100 p-4"><div class="card-body">
+        <h5 class="card-title fw-bold">Automated Invites</h5>
+        <p class="card-text">Send invites and reminders automatically — save time and boost attendance!</p>
+        <span class="highlight-tag">Automation</span>
+      </div></div></div>
+
+      <div class="col"><div class="card h-100 p-4"><div class="card-body">
+        <h5 class="card-title fw-bold">Real-time RSVP Tracking</h5>
+        <p class="card-text">Track RSVPs live and manage guest lists stress-free.</p>
+        <span class="highlight-tag">Live</span>
+      </div></div></div>
+
+      <div class="col"><div class="card h-100 p-4"><div class="card-body">
+        <h5 class="card-title fw-bold">Customizable Themes</h5>
+        <p class="card-text">Pick beautiful, unique themes to style your event perfectly.</p>
+        <span class="highlight-tag">Design</span>
+      </div></div></div>
+
+      <div class="col"><div class="card h-100 p-4"><div class="card-body">
+        <h5 class="card-title fw-bold">Secure Payment Integration</h5>
+        <p class="card-text">Offer ticketing & payments safely with trusted gateways.</p>
+        <span class="highlight-tag">Payments</span>
+      </div></div></div>
+
+      <div class="col"><div class="card h-100 p-4"><div class="card-body">
+        <h5 class="card-title fw-bold">Analytics Dashboard</h5>
+        <p class="card-text">Get insights on attendance, engagement, and sales!</p>
+        <span class="highlight-tag">Insights</span>
+      </div></div></div>
+
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center mt-5">
+      <button class="btn btn-custom px-5 py-3">Start Planning Now!</button>
+    </div>
+  </div>
+</section>
+
+<!-- Chat Popup -->
+<div id="chatContainer" class="card p-3">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <strong style="color:#20c997;">Arielle</strong>
+    <button type="button" class="btn-close" aria-label="Close" onclick="toggleChat()"></button>
+  </div>
+  <div id="chatMessages" style="height: 200px; overflow-y: auto; background: #f8f9fa; padding: 10px; border-radius: 5px;">
+    <div><strong>Arielle:</strong> Hi there! 👋 Need help planning your event?</div>
+  </div>
+  <input id="userInput" type="text" class="form-control my-2" placeholder="Ask me anything..." onkeypress="if(event.key==='Enter') sendMessage()">
+  <button class="btn btn-custom w-100" onclick="sendMessage()">Send</button>
+</div>
+
+<!-- Floating Chat Button -->
+<button onclick="toggleChat()" id="chatButton">💬 Ask Arielle</button>
+
+<!-- Footer -->
+<footer class="text-center py-4 border-top mt-5">
+  <p class="text-muted mb-1">© 2025 Eventwise by Nala</p>
+  <div>
+    <a href="#" class="text-muted px-2">Home</a> |
+    <a href="#" class="text-muted px-2">About</a> |
+    <a href="#" class="text-muted px-2">Features</a> |
+    <a href="#" class="text-muted px-2">Pricing</a>
+  </div>
+</footer>
+
+<!-- JS Scripts -->
+<script>
+function toggleChat() {
+  const chat = document.getElementById('chatContainer');
+  chat.style.display = chat.style.display === 'block' ? 'none' : 'block';
+}
+function sendMessage() {
+  const userInput = document.getElementById('userInput');
+  const chatMessages = document.getElementById('chatMessages');
+  if (userInput.value.trim() !== '') {
+    const userMessage = document.createElement('div');
+    userMessage.innerHTML = `<strong>You:</strong> ${userInput.value}`;
+    chatMessages.appendChild(userMessage);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    userInput.value = '';
+  }
+}
+</script>
+
+</body>
+</html>
+
