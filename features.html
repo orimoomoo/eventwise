@@ -9,7 +9,7 @@
   <style>
     body {
       background-color: #fffaf0;
-      color: #333333;
+      color: #180404;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
     }
@@ -52,7 +52,7 @@
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(32, 201, 151, 0.2);
+      box-shadow: 0 10px 20px rgba(16, 105, 78, 0.2);
     }
     .btn-custom {
       background-color: #ff6f61;
@@ -64,7 +64,7 @@
       transition: 0.4s ease;
     }
     .btn-custom:hover {
-      background-color: #20c997;
+      background-color: #12916b;
       color: #fff;
     }
     .highlight-tag {
@@ -102,7 +102,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #ff6f61;
+      background-color: #b12316;
       border: none;
       padding: 12px 20px;
       border-radius: 50px;
@@ -113,7 +113,7 @@
       transition: 0.4s ease;
     }
     #chatButton:hover {
-      background-color: #20c997;
+      background-color: #128160;
     }
   </style>
 </head>
@@ -121,28 +121,34 @@
 <body>
 
 <!-- Navigation -->
-<header class="py-3">
-  <div class="container d-flex justify-content-between align-items-center">
-    <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
-      <img src="./images/Eventwise-removebg-preview.png" height="170" alt="Eventwise Logo">
-    </a>
-    <nav>
-      <a href="#" class="nav-link d-inline-block px-3">Home</a>
-      <a href="#" class="nav-link d-inline-block px-3">About</a>
-      <a href="#" class="nav-link d-inline-block px-3">Features</a>
-      <a href="#" class="nav-link d-inline-block px-3">Pricing</a>
-    </nav>
-    <div>
-      <a href="#" class="btn btn-outline-dark rounded-pill me-2">Login</a>
-      <a href="#" class="btn btn-custom">Sign Up</a>
-    </div>
+<header class="p-3 bg-light text-white">
+  <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="./homepage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src="./images/Eventwise-removebg-preview.png" height="140">
+          </a>
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="./homepage.html" class="nav-link px-2 text-secondary">Home</a></li>
+              <li><a href="./about.html" class="nav-link px-2 text-black">About</a></li>
+              <li><a href="./features.html" class="nav-link px-2 text-black">Features</a></li>
+              <li><a href="./pricing.html" class="nav-link px-2 text-black">Pricing</a></li>
+          </ul>
+
+
+          <div class="text-end">
+              <a class="btn btn-outline-dark me-2" href="./login.html" role="button">Login</a>
+              <a class="btn btn-outline-light me-2 btn-outline-light btn btn-dark" href="./signup.html" role="button">Sign-up</a>
+          </div>
+      </div>
   </div>
 </header>
+<!-- End of Navigation -->
 
 <!-- Floating Avatar and Introduction -->
 <section class="text-center my-5">
   <img src="./images/arielle-tan-avatar.png" alt="Arielle Tan" class="floating-avatar rounded-circle mb-3">
-  <h1 class="fw-bold">Hi, I'm Arielle Tan</h1>
+  <h1 class="fw-bold">Hi, I'm <Ri:a></Ri:a>Arielle Tan!</h1>
   <p class="fs-4">
     🎉 Discover how <strong>Eventwise</strong> can make your event planning effortless! 🌟
   </p>
