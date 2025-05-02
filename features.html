@@ -42,7 +42,7 @@
       transition: color 0.3s;
     }
     .nav-link:hover {
-      color: #20c997;
+      color: #1f5f4c;
     }
     .card {
       background-color: #f9f2e7;
@@ -220,7 +220,9 @@
 </div>
 
 <!-- Floating Chat Button -->
-<button onclick="toggleChat()" id="chatButton">💬 Ask Arielle</button>
+<button onclick="toggleChat()" id="chatButton" class="animate__animated animate__bounceIn">
+  💬 Ask Arielle
+</button>
 
 <!-- Footer -->
 <footer class="text-center py-4 border-top mt-5">
@@ -233,25 +235,66 @@
   </div>
 </footer>
 
-<!-- JS Scripts -->
+<!-- Add Animate.css for bounce effect -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 <script>
-function toggleChat() {
-  const chat = document.getElementById('chatContainer');
-  chat.style.display = chat.style.display === 'block' ? 'none' : 'block';
-}
-function sendMessage() {
-  const userInput = document.getElementById('userInput');
-  const chatMessages = document.getElementById('chatMessages');
-  if (userInput.value.trim() !== '') {
-    const userMessage = document.createElement('div');
-    userMessage.innerHTML = `<strong>You:</strong> ${userInput.value}`;
-    chatMessages.appendChild(userMessage);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-    userInput.value = '';
+  function toggleChat() {
+    const chat = document.getElementById('chatContainer');
+    const button = document.getElementById('chatButton');
+    if (chat.style.display === 'block') {
+      chat.style.display = 'none';
+      button.classList.remove('animate__heartBeat');
+    } else {
+      chat.style.display = 'block';
+      button.classList.add('animate__heartBeat');
+    }
   }
-}
+
+  function sendMessage() {
+    const userInput = document.getElementById('userInput');
+    const chatMessages = document.getElementById('chatMessages');
+    const message = userInput.value.trim();
+
+    if (message !== '') {
+      // Add user message
+      const userMessage = document.createElement('div');
+      userMessage.innerHTML = `<strong>You:</strong> ${message}`;
+      chatMessages.appendChild(userMessage);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      userInput.value = '';
+
+      // Show typing animation
+      const typingIndicator = document.createElement('div');
+      typingIndicator.id = 'typingIndicator';
+      typingIndicator.innerHTML = `<em>Arielle is typing...</em>`;
+      chatMessages.appendChild(typingIndicator);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Simulate bot reply after delay
+      setTimeout(() => {
+        typingIndicator.remove();
+        const botReply = document.createElement('div');
+        botReply.innerHTML = `<strong>Arielle:</strong> ${getBotReply(message)}`;
+        chatMessages.appendChild(botReply);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1000);
+    }
+  }
+
+  // Simple bot response logic
+  function getBotReply(userText) {
+    userText = userText.toLowerCase();
+    if (userText.includes('price') || userText.includes('cost')) {
+      return "We offer flexible pricing plans! Check out the Pricing page for full details. 💸";
+    } else if (userText.includes('features') || userText.includes('do')) {
+      return "Great question! Eventwise helps you with planning, automated invites, RSVPs, themes, payments, and analytics. 🎯";
+    } else if (userText.includes('help') || userText.includes('support')) {
+      return "I'm here to help! You can also contact our support team anytime at support@eventwise.com.🙌";
+    } else if (userText.includes('hi') || userText.includes('hello')) {
+      return "Hello!How can I assist you with your event today?";
+    } else {
+      return "I'm not sure about that, but I'd love to help! Could you clarify your question?😊";
+    }
+  }
 </script>
-
-</body>
-</html>
-
