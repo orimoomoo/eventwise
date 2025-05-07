@@ -26,3 +26,16 @@
 .custom-icon-btn{
   width: 100%;
 }
+
+.bg-white {
+  background-color: #EED3D3 !important;
+}
+
+.bg-dark {
+  background-color: #EED3D3 !important;
+}
+
+
+.imageWeddingEventCard {
+  background-image: url(/images/wedding.jpg);
+}
