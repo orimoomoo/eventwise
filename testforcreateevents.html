@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Event</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      background-color: #f8f9fa;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .item-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .item-row input {
+      flex: 1;
+    }
+    .item-row button {
+      width: auto;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+    }
+    #addItem {
+      margin-top: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+    }
+    #saveEvent {
+      margin-top: 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+    }
+    #subtotal {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Create New Event</h2>
+
+  <form id="eventForm">
+    <label for="eventName">Event Name:</label>
+    <input type="text" id="eventName" name="eventName">
+
+    <label for="eventDescription">Event Description:</label>
+    <select id="eventDescription" name="eventDescription">
+      <option value="">-- Select Description --</option>
+      <option value="Birthday Party">Birthday Party</option>
+      <option value="Wedding">Wedding</option>
+      <option value="Conference">Conference</option>
+      <option value="Casual Gathering">Casual Gathering</option>
+    </select>
+
+    <label for="eventCategory">Event Category:</label>
+    <input type="text" id="eventCategory" name="eventCategory">
+
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate">
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate">
+
+    <label for="place">Place:</label>
+    <input type="text" id="place" name="place">
+
+    <label for="thingsToBuy">Things to Buy:</label>
+    <input type="text" id="thingsToBuy" name="thingsToBuy">
+
+    <label for="startTime">Start Time:</label>
+    <input type="time" id="startTime" name="startTime">
+
+    <label for="endTime">End Time:</label>
+    <input type="time" id="endTime" name="endTime">
+
+    <label>Item List:</label>
+    <div id="itemListContainer"></div>
+    <button type="button" id="addItem">Add Item</button>
+
+    <div id="subtotal">Subtotal: $0.00</div>
+
+    <button type="submit" id="saveEvent">Save Event</button>
+  </form>
+
+  <script>
+    const addItemBtn = document.getElementById('addItem');
+    const itemListContainer = document.getElementById('itemListContainer');
+    const subtotalEl = document.getElementById('subtotal');
+
+    function updateSubtotal() {
+      let total = 0;
+      document.querySelectorAll('.item-price').forEach(input => {
+        const value = parseFloat(input.value);
+        if (!isNaN(value)) total += value;
+      });
+      subtotalEl.textContent = `Subtotal: $${total.toFixed(2)}`;
+    }
+
+    function createItemRow() {
+      const div = document.createElement('div');
+      div.className = 'item-row';
+      div.innerHTML = `
+        <input type="text" placeholder="Item name">
+        <input type="number" placeholder="Price" class="item-price" min="0" step="0.01" oninput="updateSubtotal()">
+        <button type="button" onclick="this.parentElement.remove(); updateSubtotal();">Delete</button>
+      `;
+      return div;
+    }
+
+    addItemBtn.addEventListener('click', () => {
+      itemListContainer.appendChild(createItemRow());
+    });
+
+    document.getElementById('eventForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Event saved!');
+    });
+  </script>
+
+</body>
+</html>

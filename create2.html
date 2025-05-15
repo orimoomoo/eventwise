@@ -1,0 +1,88 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventWise | Dashboard</title>
+  <link rel="stylesheet" href="./styles/backup.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">Event <span>wise</span> <div class="logo-tag">BY NALA</div></div>
+    <button class="btn">Dashboard</button>
+    <button class="btn">Create</button>
+    <button class="btn">View All Events</button>
+    <div class="bottom-links">
+      <button>Help</button>
+      <button>Connect with others</button>
+      <button>Settings</button>
+    </div>
+    <div class="powered">Powered by NALA</div>
+  </div>
+
+  <div class="main">
+    <div class="top-bar"></div>
+    <header>
+      <h2>Welcome Back, Lisaaaaaaaa!</h2>
+      <input type="text" placeholder="Search" />
+      <div class="profile-icon"></div>
+    </header>
+
+    <section class="event-header">
+      <select>
+        <option>Events | Wedding</option>
+      </select>
+    </section>
+
+    <div class="event-image">
+      <img src="#" alt="Wedding" />
+    </div>
+
+    <div class="event-info">
+      <div class="event-date">Wedding | 20/04/2025</div>
+      <div class="actions">
+        <button>Price</button>
+        <button>Done</button>
+        <button>Add Budget Line Item</button>
+      </div>
+    </div>
+
+    <div class="progress-bar">
+      <div class="bar" id="progress-bar">65% Complete</div>
+    </div>
+
+    <section class="description">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    </section>
+
+    <section class="calendar-budget">
+      <div class="calendar">
+        <h4>Calendar</h4>
+        <div class="calendar-grid" id="calendar"></div>
+      </div>
+
+      <div class="budget-list">
+        <div class="item">
+          <label>Buying Ring</label><span>$1,000</span><input type="checkbox" checked onchange="updateProgress()" /><button>Update</button><button>Delete</button>
+        </div>
+        <div class="item">
+          <label>Wedding Gown</label><span>$2,000</span><input type="checkbox" checked onchange="updateProgress()" /><button>Update</button><button>Delete</button>
+        </div>
+        <div class="item">
+          <label>Door Gifts</label><span>$5,000</span><input type="checkbox" onchange="updateProgress()" /><button>Update</button><button>Delete</button>
+        </div>
+        <div class="item">
+          <label>Venue</label><span>$15,000</span><input type="checkbox" onchange="updateProgress()" /><button>Update</button><button>Delete</button>
+        </div>
+        <div class="summary">
+          <div>Total Target: $23,000</div>
+          <div>Total Left: $22,000</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
