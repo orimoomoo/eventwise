@@ -108,7 +108,8 @@
 
 /* Add padding to the body or main content to push everything below the fixed navbar */
 body {
-  padding-top: 60px; /* Adjust this value based on the height of your navbar */
+  /* padding-top: 60px;  */
+  /* Adjust this value based on the height of your navbar */
 }
 
 /* Add padding to the main content area */
