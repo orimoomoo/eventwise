@@ -44,6 +44,7 @@
   text-align: center;
 }
 
+
 /* Smooth collapse or expand transitions */
 #sidebar {
   z-index: 1030; /* Stay above main content if needed */
