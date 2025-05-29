@@ -500,3 +500,9 @@ input, select, textarea, button {
   font-weight: 600;
   margin-bottom: 5px;
 }
+
+/* About Page */
+
+.bg-warning text-white {
+bg-color: #B48686 !important;
+}
