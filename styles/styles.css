@@ -113,6 +113,8 @@ body {
   /* Adjust this value based on the height of your navbar */
 }
 
+
+
 /* Add padding to the main content area */
 main {
   padding-top: 70px; /* This will give space from the navbar */
@@ -276,6 +278,7 @@ input, select, textarea, button {
   border-radius: 10px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding: 25px;
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 
@@ -348,8 +351,9 @@ input, select, textarea, button {
   border-radius: 10px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding: 25px;
+  margin-top: 30px;
   margin-bottom: 20px;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
 }
 
@@ -438,13 +442,14 @@ input, select, textarea, button {
   border-radius: 10px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding: 25px;
+  margin-top: 30px;
   margin-bottom: 20px;
   height: calc(100vh - 250px); /* Need this for Scrolling */
   overflow-y: auto;
 }
 
 .carousel-item img {
-  height: 300px;
+  height: 400px;
   object-fit: cover;
   border-radius: 8px;
 }
