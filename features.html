@@ -147,8 +147,8 @@
 
 <!-- Floating Avatar and Introduction -->
 <section class="text-center my-5">
-  <img src="./images/arielle-tan-avatar.png" alt="Arielle Tan" class="floating-avatar rounded-circle mb-3">
-  <h1 class="fw-bold">Hi, I'm <Ri:a></Ri:a>Arielle Tan!</h1>
+  <img src="./images/eventwise_genie.png" alt="Maari" class="floating-avatar rounded-circle mb-3">
+  <h1 class="fw-bold">Hi, I'm <Ri:a></Ri:a>Maari!</h1>
   <p class="fs-4">
     🎉 Discover how <strong>Eventwise</strong> can make your event planning effortless! 🌟
   </p>
@@ -209,11 +209,11 @@
 <!-- Chat Popup -->
 <div id="chatContainer" class="card p-3">
   <div class="d-flex justify-content-between align-items-center mb-2">
-    <strong style="color:#20c997;">Arielle</strong>
+    <strong style="color:#20c997;">Maari</strong>
     <button type="button" class="btn-close" aria-label="Close" onclick="toggleChat()"></button>
   </div>
   <div id="chatMessages" style="height: 200px; overflow-y: auto; background: #f8f9fa; padding: 10px; border-radius: 5px;">
-    <div><strong>Arielle:</strong> Hi there! 👋 Need help planning your event?</div>
+    <div><strong>Maari:</strong> Hi there! 👋 Need help planning your event?</div>
   </div>
   <input id="userInput" type="text" class="form-control my-2" placeholder="Ask me anything..." onkeypress="if(event.key==='Enter') sendMessage()">
   <button class="btn btn-custom w-100" onclick="sendMessage()">Send</button>
@@ -221,7 +221,7 @@
 
 <!-- Floating Chat Button -->
 <button onclick="toggleChat()" id="chatButton" class="animate__animated animate__bounceIn">
-  💬 Ask Arielle
+  💬 Ask Maari
 </button>
 
 <!-- Footer -->
@@ -267,7 +267,7 @@
       // Show typing animation
       const typingIndicator = document.createElement('div');
       typingIndicator.id = 'typingIndicator';
-      typingIndicator.innerHTML = `<em>Arielle is typing...</em>`;
+      typingIndicator.innerHTML = `<em>Maari is typing...</em>`;
       chatMessages.appendChild(typingIndicator);
       chatMessages.scrollTop = chatMessages.scrollHeight;
 
@@ -275,7 +275,7 @@
       setTimeout(() => {
         typingIndicator.remove();
         const botReply = document.createElement('div');
-        botReply.innerHTML = `<strong>Arielle:</strong> ${getBotReply(message)}`;
+        botReply.innerHTML = `<strong>Maari:</strong> ${getBotReply(message)}`;
         chatMessages.appendChild(botReply);
         chatMessages.scrollTop = chatMessages.scrollHeight;
       }, 1000);
