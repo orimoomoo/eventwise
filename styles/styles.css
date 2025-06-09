@@ -60,4 +60,13 @@ background-color: #B48686 !important;
   
 }
 
+.card-img-top {
+  width: 300px;
+  height: 250px;
+  /* object-fit: cover; maintains aspect ratio */
+  /* border-radius: 50%; makes it a perfect circle */
+  display: block; /* needed for margin auto to work */
+  margin-left: auto; /* centers horizontally */
+  margin-right: auto; /* centers horizontally */
+}
 
