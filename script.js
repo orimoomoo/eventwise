@@ -95,3 +95,5 @@ document.getElementById('eventForm').addEventListener('submit', function (e) {
   alert('Event saved!');
 });
 });
+
+// DashBoard

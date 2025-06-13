@@ -3,166 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EventWise | Create Event</title>
-  <!-- Bootstrap 5.3 CSS -->
+  <title>Create Event | EventWise</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="styles/styles.css" />
-  <link rel="stylesheet" href="styles/backup.css" />
-  <style>
-
-  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="styles/combined.css" />
 </head>
 <body class="bg-light">
-  <!-- Top Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand">
-        <img src="./images/Eventwise-removebg-preview.png" alt="Brand Logo" class="navbar-logo" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-bell"></i></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-envelope"></i></a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-              <i class="bi bi-person-circle"></i> User
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
-            </ul>
-          </li>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div id="sidebar" class="col-md-1 col-lg-2 bg-white border-end vh-100 position-fixed d-none d-md-block">
+      <div style="width: 100%; height: 80px; overflow: hidden;">
+        <img src="./images/Eventwise-removebg-preview.png" alt="EventWise Logo" class="mx-auto d-block" style="height: 120px; object-fit: cover;" />
+      </div>
+      <div class="pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item mb-3 px-3"><a href="./dashboard.html" class="btn btn-secondary w-100">Dashboard</a></li>
+          <li class="nav-item mb-3 px-3"><a href="./create.html" class="btn btn-primary w-100">Create</a></li>
+          <li class="nav-item mb-3 px-3"><a href="./events.html" class="btn btn-secondary w-100">Events</a></li>
         </ul>
       </div>
+      <div class="px-3" style="position: absolute; bottom: 20px; width: calc(100% - 1.5rem);">
+        <a href="settings.html" class="btn btn-secondary btn-outline-secondary w-100">Settings</a>
+      </div>
     </div>
-  </nav>
 
+    <!-- Main Content -->
+    <div class="col-12 col-md-9 offset-md-3 col-lg-10 offset-lg-2 pt-3 pb-5">
+      <form id="eventForm" class="card p-4 shadow-sm bg-white">
+        <h3 class="mb-4">Create New Event</h3>
 
-  <!-- Main Layout -->
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar -->
-      <div id="sidebar" class="col-md-1 col-lg-2 bg-white border-end vh-100 position-fixed d-none d-md-block" style="position: relative;">
-        <div class="pt-3">
-          <ul class="nav flex-column">
-            <li class="nav-item mb-3 px-3">
-              <a href="./dashboard.html" class="btn btn-secondary w-100">Dashboard</a>
-            </li>
-            <li class="nav-item mb-3 px-3">
-              <a href="./create.html" class="btn btn-primary w-100">Create</a>
-            </li>
-            <li class="nav-item mb-3 px-3">
-              <a href="./events.html" class="btn btn-secondary w-100">Events</a>
-            </li>
-          </ul>
+        <!-- Event Name -->
+        <div class="mb-3">
+          <label for="eventName" class="form-label">Event Name</label>
+          <input type="text" class="form-control" id="eventName" required placeholder="Enter event name" />
         </div>
-        <div class="px-3" style="position: absolute; bottom: 20px; width: calc(100% - 1.5rem);">
-          <a href="settings.html" class="btn btn-secondary btn-outline-secondary w-100">Settings</a>
+
+        <!-- Event Description -->
+        <div class="mb-3">
+          <label for="eventDescription" class="form-label">Description</label>
+          <textarea class="form-control" id="eventDescription" rows="3" placeholder="Enter event description"></textarea>
         </div>
-      </div>
 
-      <!-- Main Content -->
-      <div class="col-12 col-md-9 offset-md-3 col-lg-10 offset-lg-2 mt-4 padding-top">
-
-          <div class="event-form-card">
-            <div class="form-section">
-              <h5 class="form-section-title">Event Name</h5>
-              <label for="eventCategory"></label>
-              <input type="text" id="eventCategory" name="eventCategory">
-              <div class="form-group-row">
-                <div class="form-label">Event Description:</div>
-                <label for="eventCategory"></label>
-                <input type="text" id="eventCategory" name="eventCategory">
-                <div class="form-label">Others (Add Category)</div>
-                <label for="eventCategory"></label>
-                <input type="text" id="eventCategory" name="eventCategory">
-              </div>
-            </div>
-            
-            <div class="form-section">
-              <h5 class="form-section-title">Event Category</h5>
-              
-              <div class="form-group-row form-label">
-                <label for="startDate">Start Date:</label>
-                <input type="date" id="startDate" name="startDate">
-                
-              </div>
-              <div class="form-group-row form-label">
-                <label for="endDate">End Date:</label>
-                <input type="date" id="endDate" name="endDate">
-              </div>
-              <div class="form-group-row">
-                <label for="place">Place:</label>
-                <input type="text" id="place" name="place">
-              </div>
-              <div class="form-group-row">
-                <label for="thingsToBuy">Things to Buy:</label>
-                <input type="text" id="thingsToBuy" name="thingsToBuy">
-
-              </div>
-            </div>
-            
-            <div class="form-section">
-              <h5 class="form-section-title">Time</h5>
-              <div class="form-group-row form-label">
-                <label for="startTime">Start Time:</label>
-                <input type="time" id="startTime" name="startTime">
-                <div class="form-value"></div>
-              </div>
-              <div class="form-group-row form-label">
-                <label for="endTime">End Time:</label>
-                <input type="time" id="endTime" name="endTime">
-                <div class="form-value"></div>
-              </div>
-            </div>
-            
-            <div class="form-section">
-              <h5 class="form-section-title">Items</h5>
-              <ul class="item-list">
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-              </ul>
-              <div class="form-group-row">
-                <div class="form-label">Add More Item(make clickable + icon + function)</div>
-                <div class="form-value"></div>
-              </div>
-              <div class="subtotal">
-                <div id="subtotal">Subtotal: $0.00</div>
-              </div>
-            </div>
-            
-            <!-- tutorial download to png -->
-            <div class="action-buttons">
-              <a href="#" class="btn btn-primary">
-                <i class="bi bi-download"></i> Download
-              </a>
-            
-              <a href="events.html" class="btn btn-primary">
-                <i class="bi bi-eye"></i> View All Events
-              </a>
-            </div>
-          
-          <div class="event-form-card">
-            <p><em>I want to add picture if possible</em></p>
-            <p><em>Notes</em></p>
+        <!-- Image Upload -->
+        <div class="mb-3">
+          <label for="eventImage" class="form-label">Upload Image (optional)</label>
+          <input type="file" class="form-control" id="eventImage" accept="image/*" onchange="previewImage(event)">
+          <div class="mt-3">
+            <img id="imagePreview" src="#" alt="Image preview" style="max-width: 200px; display: none;" />
           </div>
-          
-
         </div>
-      </div>
+
+        <!-- Task Section -->
+        <div class="mb-3">
+          <label for="taskInput" class="form-label">Tasks</label>
+          <ul class="list-group mb-2" id="taskList"></ul>
+          <div class="input-group">
+            <input type="text" class="form-control" id="taskInput" placeholder="Add task name">
+            <button type="button" class="btn btn-outline-primary" onclick="addTask()">Add Task</button>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="d-grid mt-4">
+          <button type="submit" class="btn btn-success">Create Event</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
-  <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Scripts -->
+<script>
+  const tasks = [];
+
+  function addTask() {
+    const taskInput = document.getElementById("taskInput");
+    const value = taskInput.value.trim();
+    if (value) {
+      tasks.push({ name: value, description: "", cost: 0, completed: false });
+
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.textContent = value;
+      document.getElementById("taskList").appendChild(li);
+      taskInput.value = "";
+    }
+  }
+
+  function previewImage(event) {
+    const output = document.getElementById("imagePreview");
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.style.display = "block";
+    output.onload = () => URL.revokeObjectURL(output.src);
+  }
+
+  document.getElementById("eventForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You are not logged in.");
+      return;
+    }
+
+    const name = document.getElementById("eventName").value;
+    const description = document.getElementById("eventDescription").value;
+
+    try {
+      const eventRes = await fetch("http://localhost:8080/api/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ name, description, imageUrl: "" })
+      });
+
+      if (!eventRes.ok) {
+        const msg = await eventRes.text();
+        alert("Failed to create event: " + msg);
+        return;
+      }
+
+      // const events = await fetch("http://localhost:8080/api/events", {
+      //   headers: { "Authorization": `Bearer ${token}` }
+      // }).then(res => res.json());
+
+      // const latestEvent = events[events.length - 1];
+      // const eventId = latestEvent.id;
+
+      // for (const task of tasks) {
+      //   await fetch(`http://localhost:8080/api/tasks/${eventId}`, {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       "Authorization": `Bearer ${token}`
+      //     },
+      //     body: JSON.stringify(task)
+      //   });
+      // }
+
+      alert("Event and tasks created successfully!");
+      window.location.href = "events.html";
+
+    } catch (err) {
+      alert(err.message);
+      console.error(err);
+    }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
