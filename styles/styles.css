@@ -233,13 +233,14 @@ label {
   margin-top: 15px;
   font-weight: bold;
 }
-input, select, textarea, button {
+
+/* input, select, textarea, button {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
   border-radius: 4px;
   border: 1px solid #ccc;
-}
+} */
 .item-row {
   display: flex;
   gap: 10px;
@@ -510,6 +511,14 @@ input, select, textarea, button {
 /* About Page */
 
 .bg-warning text-white {
-bg-color: #B48686 !important;
+  background-color: #B48686 !important;
+}
+
+header, footer {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
