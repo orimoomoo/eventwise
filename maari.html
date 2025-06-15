@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maari - Eventwise Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .chat-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, #450f74, #8a6ba8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .bot-avatar {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #a38717, #f7dc6f);
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #6218ac;
+            animation: pulse 2s infinite;
+            box-shadow: 0 5px 15px rgba(244, 208, 63, 0.3);
+            position: relative;
+        }
+        
+
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            animation: fadeIn 0.3s ease-in;
+            line-height: 1.4;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .bot-message {
+            background: linear-gradient(135deg, #f8f6f0, #f0ede3);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            border: 1px solid #e8dcc0;
+        }
+        
+        .user-message {
+            background: linear-gradient(135deg, #58a083, #4a8b6f);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .quick-options {
+            padding: 0 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option-btn {
+            background: linear-gradient(135deg, #9b7cb6, #8a6ba8);
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .option-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(155, 124, 182, 0.4);
+            background: linear-gradient(135deg, #a688c7, #9b7cb6);
+        }
+        
+        .option-btn:active {
+            transform: translateY(0);
+        }
+        
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            padding: 12px 18px;
+            background: linear-gradient(135deg, #f8f6f0, #f0ede3);
+            border-radius: 18px;
+            border-bottom-left-radius: 5px;
+            border: 1px solid #e8dcc0;
+        }
+        
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #9b7cb6;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+        
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+        
+        .restart-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+        
+        .restart-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f4d03f 0%, #f7dc6f 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #5d4e75;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <button class="restart-btn" onclick="restartChat()">↻ Restart</button>
+            <div class="bot-avatar">M</div>
+            <h2>Hello! I'm Maari</h2>
+            <p>Your magical Eventwise fairy assistant</p>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hello there! I'm <strong>Maari</strong>, your magical event planning fairy! I'm here to sprinkle some enchantment into your <span class="highlight">Eventwise</span> journey and make your event planning dreams come true! 
+                <br><br>
+                I know that planning events can sometimes feel like you need a magic wand, but guess what? <em>I'm here to be that magic for you!</em> With a wave of digital sparkles, I'll guide you through everything Eventwise can do. What would you like to discover first?
+            </div>
+        </div>
+        
+        <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        
+        <div class="quick-options" id="quickOptions">
+            <button class="option-btn" onclick="askQuestion('what-is-eventwise')">What is Eventwise?</button>
+            <button class="option-btn" onclick="askQuestion('how-it-works')">How does Eventwise work?</button>
+            <button class="option-btn" onclick="askQuestion('event-limits')">How many events can I create?</button>
+            <button class="option-btn" onclick="askQuestion('pricing')">Is this a free app?</button>
+            <button class="option-btn" onclick="askQuestion('get-help')">How can I get help?</button>
+        </div>
+    </div>
+
+    <script>
+        const responses = {
+            'what-is-eventwise': {
+                question: "What is Eventwise?",
+                answer: `<strong>Eventwise</strong> is your enchanted event planning companion!
+                <br><br>
+                Think of it as having a magical fairy godmother for all your events! Whether you're planning a fairytale wedding, a corporate gathering, a birthday celebration, or any special occasion, Eventwise waves away the stress and confusion. 
+                <br><br>
+                Like me, Eventwise believes in making magic happen through <span class="highlight">smart organization and loving care</span>:
+                <br>• Enchanted scheduling that keeps everything perfectly timed
+                <br>• Guest management that feels effortless (no more RSVP headaches!)
+                <br>• Budget magic that keeps your finances sparkling
+                <br>• Task organization so detailed, nothing ever gets forgotten
+                <br>• Customizable tools that adapt to YOUR unique vision
+                <br><br>
+                Every event planner deserves to feel like they have superpowers, and that's exactly what Eventwise gives you!`
+            },
+            'how-it-works': {
+                question: "How does Eventwise work?",
+                answer: `Great question! Let me walk you through how <strong>Eventwise</strong> makes event planning effortless:
+                <br><br>
+                <strong>Step 1: Create Your Event</strong>
+                <br>Simply tell us about your event – we'll set up everything you need!
+                <br><br>
+                <strong>Step 2: Plan with Ease</strong>
+                <br>• Use our intelligent task manager to break down your planning
+                <br>• Set up your guest list with RSVP tracking
+                <br>• Manage your budget with real-time updates
+                <br><br>
+                <strong>Step 3: Stay Organized</strong>
+                <br>• Get reminders for important deadlines
+                <br>• Track your progress with visual timelines
+                <br>• Collaborate with your planning team
+                <br><br>
+                <strong>Step 4: Execute Flawlessly</strong>
+                <br>On event day, you'll have everything organized and ready!
+                <br><br>
+                The best part? <span class="highlight">It's intuitive and user-friendly</span> – you don't need to be tech-savvy to create amazing events!`
+            },
+            'event-limits': {
+                question: "How many events can I create?",
+                answer: `Wonderful question! We believe in empowering your creativity!
+                <br><br>
+                With Eventwise, you can create <span class="highlight">unlimited events</span>! Whether you're:
+                <br><br>
+                A professional event planner managing multiple clients
+                <br>Planning your dream wedding with multiple celebrations
+                <br>A business organizing various corporate events
+                <br>A family person who loves hosting gatherings
+                <br><br>
+                <strong>You're never limited!</strong> Each event gets its own dedicated space with:
+                <br>• Complete planning toolkit
+                <br>• Separate guest lists and budgets  
+                <br>• Individual timelines and tasks
+                <br>• Custom settings for each occasion
+                <br><br>
+                We want you to dream big and plan without boundaries! Your success is our success.
+                <br><br>
+                <em>Ready to start creating your first event?</em>`
+            },
+            'pricing': {
+                question: "Is this a free app?",
+                answer: `I'm so glad you asked! We believe great event planning should be accessible to everyone.
+                <br><br>
+                <strong>Yes, Eventwise has a robust free tier!</strong>
+                <br><br>
+                <span class="highlight">Free Features Include:</span>
+                <br>• Create unlimited events
+                <br>• Basic task management
+                <br>• Guest list management (up to 100 guests per event)
+                <br>• Simple budget tracking
+                <br>• Timeline creation
+                <br>• Email support
+                <br><br>
+                <strong>Premium Features</strong> (for those who want extra power):
+                <br>• Advanced analytics and reporting
+                <br>• Unlimited guests per event
+                <br>• Priority support
+                <br>• Advanced collaboration tools
+                <br>• Custom branding options
+                <br><br>
+                We want you to <em>start planning today</em> without any barriers! Try our free version and see how it transforms your event planning experience. You can always upgrade later if you need those extra features.
+                <br><br>
+                <strong>Your success doesn't have to wait!</strong>`
+            },
+            'get-help': {
+                question: "How can I get help?",
+                answer: `I'm so happy you're thinking ahead about support! We're here for you every step of the way.
+                <br><br>
+                <span class="highlight">Multiple Ways to Get Help:</span>
+                <br><br>
+                <strong>Email Support</strong>
+                <br>Reach out anytime at support@eventwise.app – we typically respond within 24 hours!
+                <br><br>
+                <strong>In-App Chat</strong>
+                <br>Click the help icon in the app for instant assistance
+                <br><br>
+                <strong>Knowledge Base</strong>
+                <br>Step-by-step guides, tutorials, and FAQs
+                <br><br>
+                <strong>Video Tutorials</strong>
+                <br>Visual guides to help you master every feature
+                <br><br>
+                <strong>Community Forum</strong>
+                <br>Connect with other event planners and share tips
+                <br><br>
+                <strong>Priority Support</strong> (Premium users)
+                <br>Direct phone support for urgent questions
+                <br><br>
+                Remember: <em>No question is too small!</em> We want you to feel confident and successful with your event planning. You're not alone in this journey – we're your dedicated support team!
+                <br><br>
+                <strong>Ready to start planning your amazing event?</strong>`
+            }
+        };
+
+        function showTyping() {
+            document.getElementById('typingIndicator').style.display = 'block';
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function hideTyping() {
+            document.getElementById('typingIndicator').style.display = 'none';
+        }
+
+        function addMessage(message, isBot = true) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isBot ? 'bot-message' : 'user-message'}`;
+            messageDiv.innerHTML = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function askQuestion(questionKey) {
+            const response = responses[questionKey];
+            
+            // Add user question
+            addMessage(response.question, false);
+            
+            // Show typing indicator
+            showTyping();
+            
+            // Hide quick options temporarily
+            document.getElementById('quickOptions').style.display = 'none';
+            
+            // Simulate thinking time and respond
+            setTimeout(() => {
+                hideTyping();
+                addMessage(response.answer, true);
+                
+                // Show follow-up options after a delay
+                setTimeout(() => {
+                    addMessage(`
+                        <strong>What else would you like to know about EventWise?</strong> 🤔
+                        <br><br>
+                        I'm here to help you feel completely confident about starting your event planning journey! 
+                        <br><br>
+                        <em>Feel free to ask about any other aspect of our platform!</em> 💫
+                    `, true);
+                    document.getElementById('quickOptions').style.display = 'flex';
+                }, 1000);
+            }, 1500 + Math.random() * 1000);
+        }
+
+        function restartChat() {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = `
+                <div class="message bot-message">
+                    Hello there! I'm <strong>Maari</strong>, your magical event planning fairy! I'm here to sprinkle some enchantment into your <span class="highlight">Eventwise</span> journey and make your event planning dreams come true! 
+                    <br><br>
+                    I know that planning events can sometimes feel like you need a magic wand, but guess what? <em>I'm here to be that magic for you!</em> With a wave of digital sparkles, I'll guide you through everything Eventwise can do. What would you like to discover first?
+                </div>
+            `;
+            document.getElementById('quickOptions').style.display = 'flex';
+            hideTyping();
+        }
+
+        // Add some interactive elements on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                addMessage(`
+                    <em>I can sense you're curious about our magical chatbot!</em>
+                    <br><br>
+                    I'm designed to be your most helpful fairy companion, ready to answer all your questions with care and enchantment! Try clicking any question above – I promise to share detailed, magical insights about Eventwise! 
+                    <br><br>
+                    <strong>Let's create some event planning magic together!</strong>
+                `, true);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

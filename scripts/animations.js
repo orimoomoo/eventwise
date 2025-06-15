@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("ul.nav a").forEach(link => {
     if (link.href === window.location.href) {
       link.classList.remove("text-black");
-      link.classList.add("text-danger", "fw-bold");
+      link.classList.add("text-secondary", "fw-bold");
     }
   });
 

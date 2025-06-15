@@ -42,6 +42,12 @@
       font-size: 0.95rem;
       color: #666;
     }
+
+    img.img-thumbnail {
+     max-height: 400px;
+     object-fit: cover;
+    }
+
   </style>
 </head>
 <body>
@@ -73,52 +79,83 @@
     <h2 class="text-center mb-5"><strong>Meet the Team</strong></h2>
     <div class="row justify-content-center g-4">
       <div class="col-sm-6 col-md-4 text-center">
+
+    <a href="https://github.com/orimoomoo" target="_blank" style="text-decoration: none; color: inherit;">
         <div class="team-card p-3 bg-white shadow-sm">
           <img src="./images/ori_moo.jpg" alt="Team Member 1">
           <div class="team-name">Ahmad Dedy</div>
           <div class="team-role">Lead in Programmming<br>Front-End & Back-End</div>
         </div>
+    </a>
       </div>
       <div class="col-sm-6 col-md-4 text-center">
+            <a href="https://github.com/Hnaseemap" target="_blank" style="text-decoration: none; color: inherit;">
         <div class="team-card p-3 bg-white shadow-sm">
           <img src="./images/naseema.jpg" alt="Team Member 2">
           <div class="team-name">Hathar Naseema</div>
           <div class="team-role">Lead in Design UI/UX<br>Front-End</div>
         </div>
+    </a>
       </div>
       <div class="col-sm-6 col-md-4 text-center">
+        <a href="https://github.com/ArunWahab23" target="_blank" style="text-decoration: none; color: inherit;">
         <div class="team-card p-3 bg-white shadow-sm">
-          <img src="./images/arun_wahab.jpg" alt="Team Member 3">
+          <img src="./images/arunw.png" alt="Team Member 3">
           <div class="team-name">Arun Wahab</div>
           <div class="team-role">Lead in Product Development<br>Front-End</div>
         </div>
+    </a>
       </div>
     </div>
   </div>
 </section>
 <!-- End Meet the Team -->
-<!-- About Content -->
-<div class="container-fluid px-5 py-md-5">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-10 col-lg-10">
-      <h1 class="text-body-emphasis p-3 mb-2 bg-primary text-white text-center"><strong>About Eventwise</strong></h1>
-      <img class="img-fluid img-thumbnail mb-4" src="https://images.theeventscalendar.com/uploads/2023/05/The-Benefits-of-Hiring-a-Professional-Event-Planner-1528x1016.jpg" alt="Event Planning" loading="lazy">
-      <p class="fs-5">At Eventwise, we believe every event—whether an intimate birthday or a grand corporate gala—should be as unique as the people celebrating it.</p>
-      <p>Founded in 2025 by Team Nala, we blend meticulous planning, creative flair, and cutting-edge tech to turn your ideas into unforgettable experiences.</p>
-      <h4><strong>Why Choose Us?</strong></h4>
-      <ul>
-        <li>&#9989 <strong>Stress-Free Planning:</strong> Our app and team handle the logistics—you enjoy the magic.</li>
-        <li>&#9989 <strong>Tailored Creativity:</strong> No cookie-cutter events. We design around your story.</li>
-        <li>&#9989 <strong>Tech Meets Touch:</strong> AI-powered tools and human experts for seamless execution.</li>
-        <li>&#128165 <strong>100% You-Focused:</strong> From budget hacks to VIP vendor access, we’ve got your back.</li>
-      </ul>
-      <h4><strong>Our Story</strong></h4>
-      <p>What started as a humble beginning grew into 500+ events planned islandwide — all because we’re obsessed with making your milestones effortless and extraordinary.</p>
+
+<!-- About Section -->
+<section class="py-5 bg-light">
+  <div class="container px-4 px-md-5">
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold text-secondary">About Eventwise</h1>
+      <p class="lead text-muted">Plan. Create. Track. Manage.</p>
+    </div>
+
+    <div class="row align-items-center g-5">
+      <!-- Image -->
+      <div class="col-lg-6">
+        <img 
+          src="https://images.theeventscalendar.com/uploads/2023/05/The-Benefits-of-Hiring-a-Professional-Event-Planner-1528x1016.jpg" 
+          alt="Event Planning"
+          class="img-fluid rounded shadow-sm"
+          style="max-height: 420px; object-fit: cover;"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- Text Content -->
+      <div class="col-lg-6">
+        <p class="fs-5 mb-3">
+          At <strong>Eventwise</strong>, we believe every event—whether an intimate birthday or a grand corporate gala—should be as unique as the people celebrating it.
+        </p>
+        <p>
+          Founded in 2025 by <strong>Team Nala</strong>, we blend meticulous planning, creative flair, and cutting-edge tech to turn your ideas into unforgettable experiences.
+        </p>
+
+        <h4 class="mt-4"><strong>Why Choose Us?</strong></h4>
+        <ul class="list-unstyled ps-3">
+          <li class="mb-2"><strong>Stress-Free Planning:</strong> Our app and team handle the logistics—you enjoy the magic.</li>
+          <li class="mb-2"><strong>Tailored Creativity:</strong> No cookie-cutter events. We design around your story.</li>
+          <li class="mb-2"><strong>Tech Meets Touch:</strong> AI-powered tools and human experts for seamless execution.</li>
+          <li class="mb-2"><strong>100% You-Focused:</strong> From budget hacks to VIP vendor access, we’ve got your back.</li>
+        </ul>
+
+        <h4 class="mt-4"><strong>Our Story</strong></h4>
+        <p>
+          What started as a humble beginning grew into 500+ events planned islandwide — all because we’re obsessed with making your milestones effortless and extraordinary.
+        </p>
+      </div>
     </div>
   </div>
-</div>
-<!-- End About Content -->
-
+</section>
 
 <!-- Footer -->
 <footer class="text-center py-4 border-top mt-5">
